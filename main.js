@@ -1,27 +1,40 @@
-let gridContainer = document.querySelector("#grid-container");
+let size = 16;
+let mouseDown = false;
 let body = document.querySelector("body");
+let gridContainer = document.querySelector("#grid-container");
+let resetButton = document.querySelector("#button-reset");
+let sizeInput = document.querySelector("#input-size");
 
-createGrid(64);
+window.addEventListener("mousedown", () => {mouseDown = true});
+window.addEventListener("mouseup", () => {mouseDown = false});
+resetButton.addEventListener("click", () => {createGrid(size)});
 
-function createGrid(size) {
+
+createGrid(size);
+
+function createGrid() {
+    size = sizeInput.value;
     if (gridContainer) {
         gridContainer.remove();
     }
     gridContainer = document.createElement("div");
     gridContainer.id = "grid-container";
-    body.appendChild(gridContainer);
+    body.prepend(gridContainer);
 
     for (let i=0; i<size; i++) {
         let gridRow = document.createElement("div");
         for (let j=0; j<size; j++) {
             let gridCell = document.createElement("div");
-            gridCell.addEventListener("mouseover", paintCell);
             gridRow.appendChild(gridCell);
+            gridCell.addEventListener("mousedown", paintCell);
+            gridCell.addEventListener("mouseover", paintCell);
         }
         gridContainer.appendChild(gridRow);
     }
 }
 
 function paintCell(e) {
-    e.target.style.backgroundColor = "#ff0000";
+    if (mouseDown == true || e.type == "mousedown") {
+        e.target.style.backgroundColor = "#ff0000";
+    }
 }
