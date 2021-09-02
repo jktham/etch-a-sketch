@@ -8,9 +8,20 @@
     <div id=grid-container>
 
     </div>
-    <div id=div-controls>
-        <input id=input-size type=range value=16 min=1 max=64 step=1>
-        <button id=button-reset>Reset canvas</button>
-    </div>
+    <div class=div-controls>
+        <div>
+            <input id=input-color type=color>
+            <button id=button-reset>Reset canvas</button>
+            <select id=select-mode>
+                <option value="color">Color</option>
+                <option value="rainbow">Rainbow</option>
+                <option value="shade">Shade</option>
+                <option value="erase">Erase</option>
+            </select>
+        </div>
+        <div>
+            <input id=input-size type=range value=16 min=1 max=100 step=1>
+            <span id=span-size>16</span>
+        </div>
 </body>
 </html>
