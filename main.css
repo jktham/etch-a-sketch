@@ -3,9 +3,9 @@
 }
 #grid-container {
     display: table;
-    margin: 40px auto;
     width: 600px;
     height: 600px;
+    margin: 40px auto;
     border: 1px black solid;
 }
 #grid-container > div {
@@ -16,9 +16,9 @@
     background-color: rgb(255, 255, 255);
 }
 .div-controls {
+    width: 600px;
     margin: 20px auto;
     padding: 10px 0px 20px;
-    width: 600px;
     border: 1px black solid;
     text-align: center;
 }
@@ -30,15 +30,15 @@
 #input-color {
     width: 80px;
     height: 40px;
-    border: none;
     padding: 0px;
+    border: none;
 }
 #button-reset {
     width: 100px;
     height: 40px;
+    margin: 20px 30px;
     border: 1px black solid;
     background-color: rgb(240, 240, 240);
-    margin: 20px 30px;
 }
 #button-reset:hover {
     background-color: rgb(230, 230, 230);

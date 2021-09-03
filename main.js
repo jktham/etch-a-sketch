@@ -2,13 +2,14 @@ let size = 16;
 let color = "#000000"
 let mode = "color";
 let mouseDown = false;
-let body = document.querySelector("body");
+
+const body = document.querySelector("body");
 let containerGrid = document.querySelector("#grid-container");
-let buttonReset = document.querySelector("#button-reset");
-let inputSize = document.querySelector("#input-size");
-let spanSize = document.querySelector("#span-size");
-let inputColor = document.querySelector("#input-color");
-let selectMode = document.querySelector("#select-mode");
+const buttonReset = document.querySelector("#button-reset");
+const inputSize = document.querySelector("#input-size");
+const spanSize = document.querySelector("#span-size");
+const inputColor = document.querySelector("#input-color");
+const selectMode = document.querySelector("#select-mode");
 
 window.addEventListener("mousedown", () => {mouseDown = true});
 window.addEventListener("mouseup", () => {mouseDown = false});
@@ -42,9 +43,9 @@ function createGrid() {
     body.prepend(containerGrid);
 
     for (let i=0; i<size; i++) {
-        let gridRow = document.createElement("div");
+        const gridRow = document.createElement("div");
         for (let j=0; j<size; j++) {
-            let gridCell = document.createElement("div");
+            const gridCell = document.createElement("div");
             gridRow.appendChild(gridCell);
             gridCell.addEventListener("mousedown", paintCell);
             gridCell.addEventListener("mouseover", paintCell);
@@ -66,7 +67,7 @@ function paintCell(e) {
                 if (!e.target.style.backgroundColor) {
                     e.target.style.backgroundColor = "rgb(255, 255, 255)";
                 }
-                let old = e.target.style.backgroundColor.replace(/[^\d,]/g, '').split(',');
+                const old = e.target.style.backgroundColor.replace(/[^\d,]/g, '').split(',');
                 e.target.style.backgroundColor = `rgb(${old[0]-20}, ${old[1]-20}, ${old[2]-20})`;
                 break;
             case "erase":
